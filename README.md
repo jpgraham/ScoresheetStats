@@ -1,5 +1,5 @@
-# Scoresheet-Stats
-These project is designed to pull MLB player game logs from fangraphs.com and create a daily email report. The report contains stats for a predetermined set of players for the current week. The schedule is desinged around a typical Scoresheet schedule of Monday - Sunday. 
+# Scoresheet Stats
+This project is designed to pull MLB player game logs from fangraphs.com and create a daily email report. The report contains stats for a predetermined set of players for the current week. The schedule is desinged around a typical Scoresheet schedule of Monday - Sunday. 
 # Getting Started
 All code in run in R which can be found here:
 ```
