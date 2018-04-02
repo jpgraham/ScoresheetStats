@@ -1,0 +1,118 @@
+
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ###Author: Jeff Graham
+> ###Date: March 30, 2018 
+> ###This file creates and HTML table of scoresheet stats and emails the results
+> 
+> #Create Report
+> source('C:/Users/Jeff/Documents/Scoresheet Stats/scoresheet_logs.R')
+Loading required package: dplyr
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: knitr
+Loading required package: rvest
+Loading required package: xml2
+Loading required package: XML
+
+Attaching package: 'XML'
+
+The following object is masked from 'package:rvest':
+
+    xml
+
+Loading required package: magrittr
+
+
+processing file: ss_analysis.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |......                                                           |  10%
+  ordinary text without R code
+
+  |                                                                         |.............                                                    |  20%
+label: unnamed-chunk-1 (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                         |....................                                             |  30%
+   inline R code fragments
+
+  |                                                                         |..........................                                       |  40%
+label: unnamed-chunk-2 (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |.......................................                          |  60%
+label: unnamed-chunk-3 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+  |                                                                         |..............................................                   |  70%
+  ordinary text without R code
+
+  |                                                                         |....................................................             |  80%
+label: unnamed-chunk-4 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+  |                                                                         |..........................................................       |  90%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: unnamed-chunk-5 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+
+output file: ss_analysis.knit.md
+
+"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS ss_analysis.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output ss_analysis.html --smart --email-obfuscation none --self-contained --standalone --section-divs --template "C:\Users\Jeff\Documents\R\win-library\3.4\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable "theme:united" --include-in-header "C:\Users\Jeff\AppData\Local\Temp\RtmpOepeLH\rmarkdown-str18ec4b3935ed.html" --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+
+Output created: ss_analysis.html
+There were 43 warnings (use warnings() to see them)
+> library(mailR)
+> #send email
+> date<-format(Sys.Date(), format="%B %d %Y")
+> sender <- "scoresheetstats@gmail.com" # Replace with a valid address
+> recipients <- c("jpgraham15@gmail.com") # Replace with one or more valid addresses
+> email <- send.mail(from = sender,
++                    to = recipients,
++                    subject=paste("Scoresheet Stats as of",date),
++                    body = paste("Weekly results as of",date),
++                    attach.files = c("ss_analysis.html"),
++                    html = TRUE,
++                    inline = TRUE,
++                    smtp = list(host.name = "smtp.gmail.com", port = 465, user.name = "scoresheetstats", passwd = "scoresheet", ssl = TRUE),
++                    authenticate = TRUE,
++                    send = TRUE)
+> 
+> proc.time()
+   user  system elapsed 
+  27.79    1.45  152.34 

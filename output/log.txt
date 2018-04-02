@@ -1,0 +1,22 @@
+[1] "/--------------------Position Players--------------------/"
+                Name League  AB   H X2B X3B HR BB% SO% SB CS   OBP   SLG   OPS
+5       Heliot Ramos     NL 138  48  11   6  6   7  35 10  2 0.404 0.645 1.049
+13       Luis Robert     BL  84  26   8   1  3  26  27 12  3 0.491 0.536 1.027
+16      Raimel Tapia     BL 263  97  20   8  2   5  16 12  2 0.397 0.529 0.926
+6          Juan Soto     NL 111  39   6   1  3  11   8  1  2 0.415 0.505 0.920
+10      Ronald Acuna   N/BL 557 181  31   8 21   8  26 44 20 0.373 0.522 0.895
+2         Chris Shaw  Watch 469 137  35   1 24   8  28  0  0 0.346 0.525 0.871
+8      Victor Robles     NL 430 129  37   8 10   9  20 27 10 0.377 0.493 0.870
+3  Jeimer Candelario  Watch 407 108  36   4 15  11  26  1  0 0.343 0.484 0.827
+11 Lazaro Armenteros     BL 174  48   9   4  4  11  33 12  3 0.377 0.443 0.820
+12       Royce Lewis     BL 204  57   8   3  4  12  16 18  3 0.381 0.407 0.788
+4     Michael Gettys  Watch 457 116  22   4 17  10  42 22  8 0.327 0.431 0.758
+7         David Dahl     NL  77  20   2   2  3   5  23  1  1 0.293 0.455 0.748
+15      Seuly Matias     BL 222  54  13   3  7   7  32  2  1 0.297 0.423 0.720
+9     Austin Meadows     NL 318  83  22   1  5   9  17 11  3 0.323 0.384 0.707
+14     Leody Taveras     BL 522 130  20   7  8   9  18 20  6 0.310 0.360 0.670
+1      Luiz Almanzar  Watch 261  60  10   1  2  10  33 10  5 0.299 0.299 0.598
+[1] "/--------------------Pitchers--------------------/"
+            Name League GS   IP  H BB SO  ERA   AVG BABIP WHIP  SO%  BB%
+2     Riley Pint     BL 22 93.0 96 59 79 5.42 0.261 0.325 1.67 18.2 13.6
+1 Yadier Alvarez     NL 18 92.1 90 50 97 4.68 0.249 0.330 1.52 23.4 12.1
