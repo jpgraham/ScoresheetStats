@@ -12,8 +12,8 @@ https://miktex.org/download
 Indiviudal scripts may require the installation of additional R packages. If needed, the installtion code will be provide in the script.
 ## Instructions
 
-The script ```send_emal.R``` creates the html report and emails it to set of recpients. The ```Email_Report.bat``` runs this script as a batch file
-Th script send_email.R calls the script ```scoresheet_log.R``` pulls the player data from Fangraphs.com. The list of players is contained in 4 seperate .csv files. These files must contain the player name and BIS number for each player. 
+*```send_emal.R``` creates the html report and emails it to set of recpients. ```Email_Report.bat``` runs this script as a batch file.
+*```send_email.R``` calls the script ```scoresheet_log.R``` which pulls the player data from Fangraphs.com. The list of players is contained in 4 seperate .csv files. These files must contain the player name and BIS number for each player. 
 
 ## Authors
 
