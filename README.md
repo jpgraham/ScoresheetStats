@@ -17,4 +17,4 @@ Th script send_email.R calls the script ```scoresheet_log.R``` pulls the player 
 
 ## Authors
 
-* **Jeff Graham** - *Initial work* - [PurpleBooth](https://github.com/jpgraham)
+* **Jeff Graham**
