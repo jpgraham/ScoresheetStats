@@ -1,6 +1,6 @@
 ###Author: Jeff Graham
 ###Date: March 30, 2018 
-###This file creates and HTML table of scoresheet stats and emails the results
+###This file creates an HTML report of scoresheet stats and emails the results
 
 #Create Report
 source('C:/Users/Jeff/Documents/Scoresheet Stats/scoresheet_logs.R')
