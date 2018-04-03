@@ -3,7 +3,7 @@
 ###This file creates an HTML report of scoresheet stats and emails the results
 
 #Create Report
-source('C:/Users/Jeff/Documents/Scoresheet Stats/code/scoresheet_logs.R')
+source('scoresheet_logs.R')
 library(mailR)
 #send email
 date<-format(Sys.Date(), format="%B %d %Y")
@@ -13,7 +13,7 @@ email <- send.mail(from = sender,
                    to = recipients,
                    subject=paste("Scoresheet Stats as of",date),
                    body = paste("Weekly results as of",date),
-                   attach.files = c("./code/ss_analysis.html"),
+                   attach.files = c("ss_analysis.html"),
                    html = TRUE,
                    inline = TRUE,
                    smtp = list(host.name = "smtp.gmail.com", port = 465, user.name = "sender", passwd = "password", ssl = TRUE),
