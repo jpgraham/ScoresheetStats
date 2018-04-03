@@ -1,0 +1,66 @@
+
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ###Author: Jeff Graham
+> ###Date: March 30, 2018 
+> ###This file creates and HTML table of scoresheet stats and emails the results
+> 
+> setwd('C:/Users/Jeff/Documents/Scoresheet Stats')
+> 
+> requirements<- c("mailR")
+> 
+> for(requirement in requirements){if(!(requirement %in% installed.packages()))
++   install.packages(requirement)}
+> lapply(requirements, require, character.only=T)
+Loading required package: mailR
+[[1]]
+[1] TRUE
+
+> 
+> #Create Report
+> source('C:/Users/Jeff/Documents/Scoresheet Stats/Code/scoresheet_logs.R')
+Loading required package: dplyr
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: knitr
+Loading required package: rvest
+Loading required package: xml2
+Loading required package: XML
+
+Attaching package: 'XML'
+
+The following object is masked from 'package:rvest':
+
+    xml
+
+Loading required package: magrittr
+Error in file(filename, "r", encoding = encoding) : 
+  cannot open the connection
+Calls: source ... withVisible -> eval -> eval -> source -> source -> file
+In addition: There were 42 warnings (use warnings() to see them)
+Execution halted

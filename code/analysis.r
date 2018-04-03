@@ -1,5 +1,6 @@
 library(plyr)
 library(YaleToolkit)
+setwd('C:/Users/Jeff/Documents/ScoreSheet Stats')
 my_data<-read.csv("./output/game_logs.csv", header=TRUE) #read in game log data
 my_data$Date<-as.Date(my_data$Date) #Format date variable
 #printmy_data<-subset(my_data,my_data$Date>="2017-04-01") # Remove games from April 
