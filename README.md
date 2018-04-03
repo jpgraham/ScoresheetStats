@@ -13,8 +13,12 @@ Indiviudal scripts may require the installation of additional R packages. If nee
 ## Instructions
 
 1.```send_emal.R``` creates the ```ss_analysis.html``` report and emails it to set of recpients. ```Email_Report.bat``` runs this script as a batch file.
-2.```send_email.R``` calls the script ```scoresheet_log.R``` which pulls the player data from Fangraphs.com. The list of players is contained in 4 seperate .csv files. These files must contain the player name and BIS number for each player. 
+2.```send_email.R``` calls the script ```scoresheet_log.R``` which pulls the player data from Fangraphs.com. The list of players is contained in 4 seperate .csv files. These files must contain the player name and the Fangraph ID number for each player you wish to collect stats on. The ID number can be found in the Fangraphs player page URL or can be found in ```SFBB_Plaer-ID-map``` (IDFANGRAPHS).  
 
 ## Authors
 
 * **Jeff Graham**
+
+## Acknowledgements
+
+Database of player IDs was provided by ```https://www.smartfantasybaseball.com```
