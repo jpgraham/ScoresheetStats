@@ -1,6 +1,6 @@
 ###Author: Jeff Graham
 ###Date: March 30, 2018 
-###This file creates an HTML report of scoresheet stats and emails the results
+###This file creates an HTML report of player stats and emails the results
 
 #load packages
 requirements<- c("dplyr", "knitr", "data.table", "rvest", "XML", "magrittr", "mailR")
