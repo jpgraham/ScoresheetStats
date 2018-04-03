@@ -24,7 +24,7 @@ for(requirement in requirements){if(!(requirement %in% installed.packages()))
   install.packages(requirement)}
 lapply(requirements, require, character.only=T)
 
-my_data<-read.csv("./output/position_logs.csv", header=TRUE) #read in game log data for position players
+my_data<-read.csv("../output/position_logs.csv", header=TRUE) #read in game log data for position players
 my_data$Date<-as.Date(my_data$Date) #Format date variable
 j<-as.POSIXlt(Sys.Date())$wday #Count number of days after last Sunday
 j<-ifelse(j == 0, 7, ifelse(j==1,8,j)) #Change Sundays to 7
@@ -45,7 +45,7 @@ CS<-setNames(aggregate(my_data$CS, by = list(my_data$BIS), FUN = sum),c("BIS","C
 #Merge statistics
 my_data<-Reduce(function(x, y) merge(x, y, all=TRUE), list(PA, hits, X2B, X3B, HR, BB, SO, SB, CS))
 #Merge with player list
-player_id<-read.csv("./input/SS_position_players.csv", header=TRUE)
+player_id<-read.csv("../input/SS_position_players.csv", header=TRUE)
 my_data<-merge(my_data,player_id,by = 'BIS')
 my_data$OBP<-signif((my_data$H+my_data$BB)/my_data$PA,digits=3)
 my_data$SLG<-signif((my_data$H-my_data$X2B-my_data$X3B-my_data$HR+2*my_data$X2B+3*my_data$X3B+4*my_data$HR)/(my_data$PA-my_data$BB),digits=3)
@@ -56,7 +56,7 @@ BL_my_data<-subset(my_data,League=="BL")
 
 
 #--------Print statistics for pitchers------------
-pitcher_data<-read.csv("./output/pitcher_logs.csv", header=TRUE) #read in game log data for pitchers
+pitcher_data<-read.csv("../output/pitcher_logs.csv", header=TRUE) #read in game log data for pitchers
 pitcher_data$Date<-as.Date(pitcher_data$Date) #Format date variable
 pitcher_data <- subset(pitcher_data, pitcher_data$Date>Sys.Date()-j) #Include only games since last Sunday
 
@@ -88,7 +88,7 @@ pitcher_data$IP<-signif((floor(pitcher_data$IP)+(pitcher_data$IP-floor(pitcher_d
 pitcher_data$BABIP<-signif(pitcher_data$BABIP,digits=3)
 
 #Merge with player list
-pitcher_id<-read.csv("./input/SS_pitchers.csv", header=TRUE)
+pitcher_id<-read.csv("../input/SS_pitchers.csv", header=TRUE)
 pitcher_data<-merge(pitcher_data,pitcher_id,by = 'BIS') 
 pitcher_data<-pitcher_data[order(pitcher_data$Order),]
 
@@ -96,8 +96,8 @@ NL_pitcher_data<-subset(pitcher_data,League=="NL")
 BL_pitcher_data<-subset(pitcher_data,League=="BL")
 
 #Import Minor league data
-ML_my_data<-read.csv("./output/ML_position_logs.csv", header=TRUE) #read in game log data for position players
-ML_pitcher_data<-read.csv("./output/ML_pitcher_logs.csv", header=TRUE) #read in game log data for pitchers
+ML_my_data<-read.csv("../output/ML_position_logs.csv", header=TRUE) #read in game log data for position players
+ML_pitcher_data<-read.csv("../output/ML_pitcher_logs.csv", header=TRUE) #read in game log data for pitchers
 names(ML_pitcher_data)[names(ML_pitcher_data) == 'BB.'] <- 'BB%'
 names(ML_pitcher_data)[names(ML_pitcher_data) == 'SO.'] <- 'SO%'
 

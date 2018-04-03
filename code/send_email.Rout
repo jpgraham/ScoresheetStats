@@ -19,22 +19,10 @@ Type 'q()' to quit R.
 
 > ###Author: Jeff Graham
 > ###Date: March 30, 2018 
-> ###This file creates and HTML table of scoresheet stats and emails the results
-> 
-> setwd('C:/Users/Jeff/Documents/Scoresheet Stats')
-> 
-> requirements<- c("mailR")
-> 
-> for(requirement in requirements){if(!(requirement %in% installed.packages()))
-+   install.packages(requirement)}
-> lapply(requirements, require, character.only=T)
-Loading required package: mailR
-[[1]]
-[1] TRUE
-
+> ###This file creates an HTML report of scoresheet stats and emails the results
 > 
 > #Create Report
-> source('C:/Users/Jeff/Documents/Scoresheet Stats/Code/scoresheet_logs.R')
+> source('C:/Users/Jeff/Documents/Scoresheet Stats/code/scoresheet_logs.R')
 Loading required package: dplyr
 
 Attaching package: 'dplyr'
@@ -59,8 +47,72 @@ The following object is masked from 'package:rvest':
     xml
 
 Loading required package: magrittr
-Error in file(filename, "r", encoding = encoding) : 
-  cannot open the connection
-Calls: source ... withVisible -> eval -> eval -> source -> source -> file
-In addition: There were 42 warnings (use warnings() to see them)
+
+
+processing file: ss_analysis.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |......                                                           |  10%
+  ordinary text without R code
+
+  |                                                                         |.............                                                    |  20%
+label: unnamed-chunk-1 (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                         |....................                                             |  30%
+   inline R code fragments
+
+  |                                                                         |..........................                                       |  40%
+label: unnamed-chunk-2 (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |.......................................                          |  60%
+label: unnamed-chunk-3 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+  |                                                                         |..............................................                   |  70%
+  ordinary text without R code
+
+  |                                                                         |....................................................             |  80%
+label: unnamed-chunk-4 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+  |                                                                         |..........................................................       |  90%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: unnamed-chunk-5 (with options) 
+List of 1
+ $ echo: logi FALSE
+
+
+output file: ss_analysis.knit.md
+
+"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS ss_analysis.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output ss_analysis.html --smart --email-obfuscation none --self-contained --standalone --section-divs --template "C:\Users\Jeff\Documents\R\win-library\3.4\rmarkdown\rmd\h\default.html" --no-highlight --variable highlightjs=1 --variable "theme:united" --include-in-header "C:\Users\Jeff\AppData\Local\Temp\RtmpYxSpDi\rmarkdown-str1acc5e664626.html" --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+
+Output created: ss_analysis.html
+There were 44 warnings (use warnings() to see them)
+> library(mailR)
+> #send email
+> date<-format(Sys.Date(), format="%B %d %Y")
+> sender <- "scoresheetstats@gmail.com" # Replace with a valid address
+> recipients <- c("jpgraham15@gmail.com") # Replace with one or more valid addresses
+> email <- send.mail(from = sender,
++                    to = recipients,
++                    subject=paste("Scoresheet Stats as of",date),
++                    body = paste("Weekly results as of",date),
++                    attach.files = c("ss_analysis.html"),
++                    html = TRUE,
++                    inline = TRUE,
++                    smtp = list(host.name = "smtp.gmail.com", port = 465, user.name = "scoresheetstats", passwd = "superawesomes", ssl = TRUE),
++                    authenticate = TRUE,
++                    send = TRUE)
+Error in .createEmailAttachments(attach.files, dots) : 
+  Argument 'attach.files' must link to valid files
+Calls: send.mail -> .createEmailAttachments
 Execution halted

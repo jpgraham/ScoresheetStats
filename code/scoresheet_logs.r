@@ -5,10 +5,10 @@ for(requirement in requirements){if(!(requirement %in% installed.packages()))
   install.packages(requirement)}
 lapply(requirements, require, character.only=T)
 
-setwd('C:/Users/Jeff/Documents/Scoresheet Stats')
+
 #--------------------Create game log for position players-----------------------------
 #Create table of players and IDs for fangraph links
-player_id<-read.csv("./input/SS_position_players.csv", header=TRUE)
+player_id<-read.csv("../input/SS_position_players.csv", header=TRUE)
 unique_id<-unique(player_id[,1:2]) #remove duplicate players (both teams)
 my_data=NULL
 #Scrape data and combine into a single file
@@ -41,13 +41,13 @@ my_data<-rbind(x,my_data)
                       }
 }
 }
-write.csv(my_data, "./output/position_logs.csv", row.names=FALSE) #Export data to csv file
-#sink("./output/log.txt", split = TRUE)#output log file
+write.csv(my_data, "../output/position_logs.csv", row.names=FALSE) #Export data to csv file
+
 
 
 #--------------------Create game log for pitchers players-----------------------------
 #Create table of players and IDs for fangraph links
-pitcher_id<-read.csv("./input/SS_pitchers.csv", header=TRUE)
+pitcher_id<-read.csv("../input/SS_pitchers.csv", header=TRUE)
 unique_pitcher<-unique(pitcher_id[,1:2]) #remove duplicate players (both teams)
 my_data=NULL
 #Scrape data and combine into a single file
@@ -71,10 +71,10 @@ my_data<-rbind(x,my_data)
                       }
 }
 }
-write.csv(my_data, "./output/pitcher_logs.csv", row.names=FALSE) #Export data to csv file
+write.csv(my_data, "../output/pitcher_logs.csv", row.names=FALSE) #Export data to csv file
 
 #Minor League Data
-source('C:/Users/Jeff/Documents/Scoresheet Stats/minor_game_logs.r')
+source('minor_game_logs.r')
 
 Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc")
-rmarkdown::render("C:/Users/Jeff/Documents/Scoresheet Stats/ss_analysis.Rmd", "html_document")
+rmarkdown::render("ss_analysis.Rmd", "html_document")

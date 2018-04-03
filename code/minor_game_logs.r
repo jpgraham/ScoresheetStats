@@ -1,11 +1,4 @@
-library(rvest)
-library(XML)
 
-setwd('C:/Users/Jeff/Documents/Scoresheet Stats')
-
-#Create table of players and IDs for fangraph links
-player_id<-read.csv("./input/SS_minors.csv", header=TRUE)
-my_data=NULL
 #Scrape position player data and combine into a single file
 for (i in player_id[,2]) {
 x<-read_html(paste("http://www.fangraphs.com/statsd.aspx?playerid=",i
@@ -52,10 +45,10 @@ my_data<-rbind(x,my_data)
 
 #Sort by SLG%
 ML_my_data<-my_data[order(-my_data$OPS),]
-write.csv(ML_my_data, "./output/ML_position_logs.csv", row.names=FALSE) #Export data to csv file
+write.csv(ML_my_data, "../output/ML_position_logs.csv", row.names=FALSE) #Export data to csv file
 
 #Create table of players and IDs for fangraph links
-pitcher_id<-read.csv("./input/SS_minor_pitchers.csv", header=TRUE)
+pitcher_id<-read.csv("../input/SS_minor_pitchers.csv", header=TRUE)
 pitcher_data=NULL
 #Scrape position player data and combine into a single file
 for (i in pitcher_id[,2]) {
@@ -87,5 +80,5 @@ pitcher_data<-rbind(y,pitcher_data)
 
 #Sort by League
 ML_pitcher_data<-pitcher_data[order(pitcher_data$AVG),]
-write.csv(ML_pitcher_data, "./output/ML_pitcher_logs.csv", row.names=FALSE) #Export data to csv file
+write.csv(ML_pitcher_data, "../output/ML_pitcher_logs.csv", row.names=FALSE) #Export data to csv file
 
