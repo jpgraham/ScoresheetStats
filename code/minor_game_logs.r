@@ -1,8 +1,11 @@
+#Create table of players and IDs for fangraph links
+player_id<-read.csv("../input/SS_minors.csv", header=TRUE)
+my_data=NULL
 
 #Scrape position player data and combine into a single file
 for (i in player_id[,2]) {
 x<-read_html(paste("http://www.fangraphs.com/statsd.aspx?playerid=",i
-,"&position=",player_id[match(i,player_id$BIS_Number),4],"&type=-1&gds=&gde=","&season=2017",sep="",collapse=NULL))
+,"&position=",player_id[match(i,player_id$BIS_Number),4],"&type=-1&gds=&gde=","&season=2017", sep="",collapse=NULL))
 x<-x %>%
   html_nodes("#DailyStats1_dgSeason1_ctl00")%>%html_table(header=NA, )
 if(length(x) != 0) { 
