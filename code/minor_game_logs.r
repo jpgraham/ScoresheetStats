@@ -30,29 +30,21 @@ x$"SO%"<-as.numeric(round(100*x$SO/x$AB),digits=1)
 x$RBI<-as.numeric(x$RBI)
 x$SB<-as.numeric(x$SB)
 x$CS<-as.numeric(x$CS)
-#x$BABIP<-as.numeric(x$BABIP)
 x$AVG<-as.numeric(x$AVG)
-#x$SLG<-as.numeric(x$SLG)
 x$OBP<-as.numeric(signif((x$H+x$BB+x$HBP)/(x$AB+x$BB+x$HBP+x$SF+x$SH),digits=3))
 x$SLG<-as.numeric(signif((x$H-x$X2B-x$X3B-x$HR+2*x$X2B+3*x$X3B+4*x$HR)/x$AB,digits=3))
 x$OPS<-(x$OBP+x$SLG)
-#x$BB.<-as.numeric(gsub("%","", x$BB.))
-#x$K.<-as.numeric(gsub("%","", x$K.))
-#x$ISO<-as.numeric(x$ISO)
-#x$BABIP<-as.numeric(x$BABIP)
-#x$BB<-round(x$PA*x$BB./100)
-#x$K<-round(x$PA*x$K./100)
 my_data<-rbind(x,my_data)
                       }
 }
 
-#Sort by SLG%
 ML_my_data<-my_data[order(-my_data$OPS),]
-write.csv(ML_my_data, "../output/ML_position_logs.csv", row.names=FALSE) #Export data to csv file
+write.csv(ML_my_data, "../output/ML_position_logs.csv", row.names=FALSE) 
 
 #Create table of players and IDs for fangraph links
 pitcher_id<-read.csv("../input/SS_minor_pitchers.csv", header=TRUE)
 pitcher_data=NULL
+
 #Scrape position player data and combine into a single file
 for (i in pitcher_id[,2]) {
 y<-read_html(paste("https://www.fangraphs.com/statsd.aspx?playerid=", i, "&position=P&type=-1&gds=&gde=&season=",sep="",collapse=NULL))
@@ -83,5 +75,5 @@ pitcher_data<-rbind(y,pitcher_data)
 
 #Sort by League
 ML_pitcher_data<-pitcher_data[order(pitcher_data$AVG),]
-write.csv(ML_pitcher_data, "../output/ML_pitcher_logs.csv", row.names=FALSE) #Export data to csv file
+write.csv(ML_pitcher_data, "../output/ML_pitcher_logs.csv", row.names=FALSE) 
 
