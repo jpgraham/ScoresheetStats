@@ -11,6 +11,7 @@ lapply(requirements, require, character.only=T)
 player_id<-read.csv("../input/SS_position_players.csv", header=TRUE)
 unique_id<-unique(player_id[,1:2]) #remove duplicate players (both teams)
 my_data=NULL
+
 #Scrape data and combine into a single file
 for (i in unique_id[,2]) {
 test=try(read_html(paste("http://www.fangraphs.com/statsd.aspx?playerid=",i,"&season=2018",sep="",collapse=NULL)),TRUE)
@@ -45,11 +46,12 @@ write.csv(my_data, "../output/position_logs.csv", row.names=FALSE) #Export data 
 
 
 
-#--------------------Create game log for pitchers players-----------------------------
+#--------------------Create game log for pitchers-----------------------------
 #Create table of players and IDs for fangraph links
 pitcher_id<-read.csv("../input/SS_pitchers.csv", header=TRUE)
 unique_pitcher<-unique(pitcher_id[,1:2]) #remove duplicate players (both teams)
 my_data=NULL
+
 #Scrape data and combine into a single file
 for (i in unique_pitcher[,2]) {
 test=try(read_html(paste("http://www.fangraphs.com/statsd.aspx?playerid=",i,"&season=2018",sep="",collapse=NULL)),TRUE)
@@ -71,9 +73,9 @@ my_data<-rbind(x,my_data)
                       }
 }
 }
-write.csv(my_data, "../output/pitcher_logs.csv", row.names=FALSE) #Export data to csv file
+write.csv(my_data, "../output/pitcher_logs.csv", row.names=FALSE)
 
-#Minor League Data
+#Scrap minor league data
 source('minor_game_logs.r')
 
 Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc")
