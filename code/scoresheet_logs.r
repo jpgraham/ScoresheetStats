@@ -75,7 +75,7 @@ my_data<-rbind(x,my_data)
 }
 write.csv(my_data, "../output/pitcher_logs.csv", row.names=FALSE)
 
-#Scrap minor league data
+#Scrape minor league data
 source('minor_game_logs.r')
 
 Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc")
