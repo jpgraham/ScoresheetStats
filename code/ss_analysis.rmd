@@ -12,7 +12,7 @@ end<-Sys.Date()-1
 
 j<-as.POSIXlt(Sys.Date())$wday
 j<-ifelse(j == 0, 7, ifelse(j==1,8,j)) #Change Sundays to 7
-start <- Sys.Date()-j
+start <- Sys.Date()-j+1
 ```
 ###`r format(start, "%B %d, %Y")` to `r format(end, "%B %d, %Y")`
 ```{r, include=FALSE}
