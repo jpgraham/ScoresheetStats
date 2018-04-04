@@ -55,13 +55,11 @@ NL_my_data<-subset(my_data,League=="NL")
 BL_my_data<-subset(my_data,League=="BL") 
 
 
-#--------Print statistics for pitchers------------
 pitcher_data<-read.csv("../output/pitcher_logs.csv", header=TRUE) #read in game log data for pitchers
 pitcher_data$Date<-as.Date(pitcher_data$Date) #Format date variable
 pitcher_data <- subset(pitcher_data, pitcher_data$Date>Sys.Date()-j) #Include only games since last Sunday
 
 #Calculate corrected IP
-
 pitcher_data$aIP<-(floor(pitcher_data$IP)+(pitcher_data$IP-floor(pitcher_data$IP))/.3)  
 
 #Calculate weighted average BABIP
