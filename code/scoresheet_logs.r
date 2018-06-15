@@ -66,7 +66,7 @@ pitcher<-rbind(x,pitcher)
 
 
 #Pull Minor League Data
-source('C:/Users/Jeff/Documents/Scoresheet Stats - Private/code/minor_game_logs.r')
+source('minor_game_logs.r')
 
 Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc")
 rmarkdown::render("ss_analysis.Rmd", "html_document")
